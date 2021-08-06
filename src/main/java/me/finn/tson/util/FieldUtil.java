@@ -51,7 +51,7 @@ public class FieldUtil {
             // If skip is true, we will skip the field.
             if (serializeAnnotation.skip()) return false;
 
-            //Check if skipNull is true or skipIfEquals is not empty to get the field object
+              //Check if skipNull is true or skipIfEquals is not empty to get the field object
             if (serializeAnnotation.skipNull() || !serializeAnnotation.skipIfEquals().isEmpty()) {
                 try {
                     Object fieldObject = field.get(instance);
@@ -66,6 +66,14 @@ public class FieldUtil {
                         if (fieldObject instanceof Number) {
                             if (!isNumeric(skipString))
                                 throw new TsonSerializeException("Failed to Skip-String, Field (Name:" + field.getName() + ", Value:" + fieldObject + " in Class:" + clazz.getName() + ") is numeric but skip-string (\"" + skipString + "\") not");
+                        } else if (fieldObject instanceof Boolean) {
+                            if (!(skipString.equalsIgnoreCase("true") || skipString.equalsIgnoreCase("false"))) {
+                                throw new TsonSerializeException("Failed to Skip-String, Field (Name:" + field.getName() + ", Value:" + fieldObject + " in Class:" + clazz.getName() + ") is boolean but skip-string (\"" + skipString + "\") not (value must be true or false)");
+                            }
+
+                            boolean value = Boolean.parseBoolean(skipString);
+                            // If our Field-Object-Boolean equals the Skip-String-Boolean we will skip the Field
+                            if (value == Boolean.parseBoolean(fieldObject.toString())) return false;
                         } else if (!(fieldObject instanceof String)) {
                             String msg = (fieldObject == null) ? "is a null-object, if you want to skip null objects (too) use skipNull" : "is neither a String nor a Numeric Object, other objects are not supported";
 
