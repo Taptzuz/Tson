@@ -15,7 +15,6 @@ With Tson you are be able to serialize your Java-Objects to a Json and vice vers
 
 ### TODO
  - Automatic Empty-Constructor generation for newInstance
- - "skipIfEquals" for boolean values
  - Maybe ASM(Bytecode)-Based Reflection for faster De/Serialization (like ReflectASM)
 
 ##### 1. De/Serialization
