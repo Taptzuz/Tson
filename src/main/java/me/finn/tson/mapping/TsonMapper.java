@@ -23,6 +23,6 @@ public class TsonMapper {
     }
 
     public static TsonDeserializer getDeserializer(InputStream inputStream) throws IOException {
-        return getDeserializer(new Tson(inputStream).toString());
+        return getDeserializer(new Tson(inputStream).toJsonString());
     }
 }
