@@ -28,7 +28,6 @@ public class Tson {
     public Tson(String json, Object jsonObject) {
         this.json = json;
         this.jsonObject = jsonObject;
-
     }
 
     public Tson(final InputStream inputStream) throws IOException {
