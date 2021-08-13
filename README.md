@@ -10,9 +10,8 @@ With Tson you are be able to serialize your Java-Objects to a Json and vice vers
    Maps.
 - Has a Pretty-Json formatter
 - Thread-Safe
-- Does not need any other libraries
 - Access for Private-Fields
-- No other libraries needed
+- Does not need any other libraries
 
 ### TODO
  - Automatic Empty-Constructor generation for newInstance
