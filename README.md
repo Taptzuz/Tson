@@ -12,6 +12,7 @@ With Tson you are be able to serialize your Java-Objects to a Json and vice vers
 - Thread-Safe
 - Does not need any other libraries
 - Access for Private-Fields
+- No other libraries needed
 
 ### TODO
  - Automatic Empty-Constructor generation for newInstance
