@@ -6,12 +6,6 @@ package me.finn.tson.util;
  */
 public class Constants {
 
-    public static boolean isWhitespace(char c) {
-        return c == ' '
-                || c == '\n'
-                || c == '\t';
-    }
-
     public static boolean isLetter(char c) {
         return c >= 'a' && c <= 'z';
     }

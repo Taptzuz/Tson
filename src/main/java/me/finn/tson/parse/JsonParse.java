@@ -55,7 +55,7 @@ public class JsonParse {
         char current;
 
         try {
-            while (Constants.isWhitespace((current = jsonString.charAt(i)))) i++;
+            while (Character.isWhitespace((current = jsonString.charAt(i)))) i++;
         } catch (IndexOutOfBoundsException e) {
             throw new JsonParseException("Provided JSON string did not contain a value");
         }
@@ -204,7 +204,7 @@ public class JsonParse {
                     }
                     break;
                 case HEURISTIC:
-                    while (Constants.isWhitespace(current) && i++ < end) {
+                    while (Character.isWhitespace(current) && i++ < end) {
                         current = jsonString.charAt(i);
                     }
 
@@ -248,7 +248,7 @@ public class JsonParse {
                     }
                     break;
                 case OBJECT:
-                    while (Constants.isWhitespace(current) && i++ < end) {
+                    while (Character.isWhitespace(current) && i++ < end) {
                         current = jsonString.charAt(i);
                     }
 
@@ -286,13 +286,13 @@ public class JsonParse {
                         } else {
                             return currentContainer;
                         }
-                    } else if (!Constants.isWhitespace(current)) {
+                    } else if (!Character.isWhitespace(current)) {
                         throw new JsonParseException(stateStack, "unexpected character '" + current +
                                 "' where a property name is expected. Missing quotes?");
                     }
                     break;
                 case ARRAY:
-                    while (Constants.isWhitespace(current) && i++ < end) {
+                    while (Character.isWhitespace(current) && i++ < end) {
                         current = jsonString.charAt(i);
                     }
 
